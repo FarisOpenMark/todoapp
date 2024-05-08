@@ -1,0 +1,41 @@
+{
+  "name": "todolib",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/todolib/src",
+  "targets": {
+    "build": {
+      "executor": "@monodon/rust:check",
+      "outputs": [
+        "{options.target-dir}"
+      ],
+      "options": {
+        "target-dir": "dist/target/todolib"
+      }
+    },
+    "test": {
+      "executor": "@monodon/rust:test",
+      "outputs": [
+        "{options.target-dir}"
+      ],
+      "options": {
+        "target-dir": "dist/target/todolib"
+      },
+      "configurations": {
+        "production": {
+          "release": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@monodon/rust:lint",
+      "outputs": [
+        "{options.target-dir}"
+      ],
+      "options": {
+        "target-dir": "dist/target/todolib"
+      }
+    }
+  },
+  "tags": []
+}
